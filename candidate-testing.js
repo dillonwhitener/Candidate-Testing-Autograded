@@ -16,6 +16,8 @@ let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"]
 let candidateAnswers = [];
 
 
+let answer = []//my custom variable
+
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
   candidateName = input.question("Please enter your name. ");
@@ -28,32 +30,52 @@ function askQuestion() {
 
   for (let i = 0; i < questions.length; i++) {
     candidateAnswers.push(input.question(questions[i]));
+    if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+      console.log("Correct");
+      } else {
+      console.log("Incorrect");
+      } 
   }
 }
 
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-  //if (candidateAnswer === correctAnswer){
-    //console.log("Question 1: Correct!");
- // }else {
-    //console.log ("Question 1: Incorrect.");
- // }
 
- 
  for (let i = 0; i < questions.length; i++) {
  console.log(`You answered, ${candidateAnswers[i]}. The correct answer was ${correctAnswers[i]}.`);
  }
+  
+ let grade;
+
+    let numbers = [1, 1, 1, 1, 1]
+    let total = 0
+
+    for (let i = 0; i < numbers.length; i++) { 
+      if (candidateAnswers[i].toLowerCase() === correctAnswers[i].toLowerCase()) {
+        total += numbers[i];
+      }
+    }
+      grade = total / questions.length * 100;
+  
+if (grade === 0) {
+    console.log(`You answered 0 questions correctly. Your score is ${grade}%. You did not pass.`);  
+}if (grade === 20) {
+  console.log(`You answered 1 question correctly. Your score is ${grade}%. You did not pass.`);
+} if (grade === 40) {
+console.log(`You answered 2 questions correctly. Your score is ${grade}%. You did not pass.`);
+}if (grade === 60){
+console.log(`You answered 3 questions correctly. Your score is ${grade}%. You did not pass.`);
+}if (grade === 80){
+console.log(`You answered 4 questions correctly. Your score is ${grade}%. You passed!`);
+}if (grade === 100){
+console.log(`You answered 5 questions correctly. Your score is ${grade}%. You passed!`);
 }
 
-    
-  
-
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
+  return grade;
+}
 
 
-  //return grade;{
-//}
 
 function runProgram() {
   askForName();
