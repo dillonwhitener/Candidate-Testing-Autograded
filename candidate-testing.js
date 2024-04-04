@@ -16,7 +16,7 @@ let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3"]
 let candidateAnswers = [];
 
 
-let answer = []//my custom variable
+let answer = []
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
